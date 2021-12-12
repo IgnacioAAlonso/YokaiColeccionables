@@ -24,7 +24,7 @@ const Carrito = () => {
                         aria-label="Close"
                     ></button>
                 </div>
-                <div class="offcanvas-body">El Carrito esta vacio</div>
+                <div class="offcanvas-body"></div>
             </div>
         </div>
     );

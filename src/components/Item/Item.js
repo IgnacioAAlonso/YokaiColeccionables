@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ItemCount from './ItemCount'
 
-const Item = () => {
+const Item = ({ producto }) => {
+    const { id, title, description, price, stock, pictureUrl } = producto;
+    /* const { id, nombre } = producto; */
+
     return (
-        <div class="card" style={{width: '18rem'}}>
-            <img src="..." class="card-img-top" alt="Catalogo" />
+        <div class="card card_item" style={{ width: '18rem' }}>
+            <img src={pictureUrl} class="card-img-top imagen_item" alt="Catalogo" />
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="contenedor__cantidad">
-                    <button class="btn btn-danger">-</button>
-                    <p class="cantidad__item">1</p>
-                    <button class="btn btn-primary">+</button>
-                </div>
-                <p class="stock__item">Stock Actual: 10</p>
+                <h5 class="card-title">{title}</h5>
+                <p class="card-text">{description}</p>
+                <ItemCount stock={stock} initial={1} />
             </div>
         </div>
     )
