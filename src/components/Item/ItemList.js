@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Item from './Item'
 
 const ItemList = ({ productosTotales }) => {
 
     const [productos, setProductos] = useState([]);
 
-    const API = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            setProductos(productosTotales)
-            resolve(true)
-        }, 2000)
-    })
+    useEffect(() => {
+        const API = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                setProductos(productosTotales)
+                resolve(true)
+            }, 2000)
+        })
+    }, [])
 
     return (
         <>
