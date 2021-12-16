@@ -1,10 +1,15 @@
 import React from 'react'
 import ItemListContainer from '../components/ItemListContainer'
+import Titles from '../components/Titles'
 
 const Home = () => {
+
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
-            <ItemListContainer textoTitulo={"Inicio"}></ItemListContainer>
+        <div>
+            <div style={{ display: 'flex', justifyContent: 'center', height: '10vh' }}>
+                <Titles textoTitulo={"Inicio"}></Titles>
+            </div>
+            <ItemListContainer />
         </div>
     )
 }
