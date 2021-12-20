@@ -40,3 +40,91 @@
 .card_item {
   margin: 6px;
 }
+
+.borde{
+  border: solid black;
+}
+
+/*-----------------Item Detail---------------------*/
+
+.contenedor__detalles{
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10% auto;
+  margin-top: 15px;
+}
+
+.contenedor__detalles-imagen{
+  width: 40%;
+  height: auto;
+  margin-right: 15%;
+}
+
+.contenedor__detalles-imagen-img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contenedor__detalles-item{
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor__detalles-item-titulo{
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.contenedor__detalles-item-precio{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.contenedor__detalles-cantidad{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  height: 50px;
+  width: 35%;
+
+  border: solid 1px rgb(77, 77, 77);
+}
+
+.contenedor__detalles-cantidad-actual{
+  margin-top: 5%;
+}
+
+.contenedor__detalles-cantidad-resta{
+  border-radius: 20px;
+  width: 38px;
+  height: 38px;
+  align-self: center;
+  background-color: black;
+  color: white;
+}
+
+.contenedor__detalles-cantidad-suma{
+  align-self: center;
+  border-radius: 20px;
+  width: 38px;
+  height: 38px;
+  background-color: black;
+  color: white;
+}
+
+.contenedor__detalles-btnCarrito{
+  margin-top: 7%;
+  margin-bottom: 7%;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  font-weight: bold;
+  height: 50px;
+}

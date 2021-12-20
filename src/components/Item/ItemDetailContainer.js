@@ -4,13 +4,9 @@ import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
 
-    const { id } = useParams();
-    console.log(id);
     const [producto, setProducto] = useState([]);
-
     const location = useLocation();
     const prod = location.state;
-    console.log(location.state);
 
     useEffect(() => {
         getItem.then((res) => { setProducto(res) })
@@ -24,8 +20,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-            {/* <ItemDetail item={item} /> */}
-            {producto.category}
+            <ItemDetail item={producto} />
         </div>
     )
 }
