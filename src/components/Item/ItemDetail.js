@@ -4,12 +4,11 @@ import "./Item.css"
 const ItemDetail = ({ item }) => {
 
     const { id, title, description, price, stock, pictureUrl } = item;
-    const STOCK = stock;
 
     let [state, setState] = useState(1);
 
     const sumaCarrito = () => {
-        if (STOCK > state) {
+        if (stock > state) {
             setState(++state);
         }
     }
@@ -38,7 +37,7 @@ const ItemDetail = ({ item }) => {
                     </div>
                     <button class="contenedor__detalles-btnCarrito" data-bs-toggle="offcanvas" href="#offcanvasRight">
                         Agregar al carrito
-                        </button>
+                    </button>
 
                     <h5 class="contenedor__detalles-item-subtitulo">{title}</h5>
                     <p class="contenedor__detalles-item-descripcion">{description}</p>

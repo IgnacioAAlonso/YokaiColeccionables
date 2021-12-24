@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
@@ -7,20 +7,21 @@ const ItemDetailContainer = () => {
     const [producto, setProducto] = useState([]);
     const location = useLocation();
     const prod = location.state;
+    console.log(prod);
 
-    useEffect(() => {
-        getItem.then((res) => { setProducto(res) })
-    }, [])
+    /*  useEffect(() => {
+         getItem.then((res) => { setProducto(res) })
+     }, []) */
 
-    const getItem = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(prod.producto)
-        }, 2000)
-    })
+    /*  const getItem = new Promise((resolve, reject) => {
+         setTimeout(() => {
+             resolve(prod.producto)
+         }, 2000)
+     }) */
 
     return (
         <div>
-            <ItemDetail item={producto} />
+            {/* <ItemDetail item={producto} /> */}
         </div>
     )
 }

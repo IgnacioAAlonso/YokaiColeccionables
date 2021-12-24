@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink as Link } from 'react-router-dom';
-import ItemList from '../components/Item/ItemList'
+import ItemList from './ItemList'
 
 const ItemListContainer = () => {
     const productos = [

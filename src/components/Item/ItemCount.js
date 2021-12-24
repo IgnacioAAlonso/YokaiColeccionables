@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import "./Item.css"
 
 const ItemCount = ({ stock, initial }) => {
-    const STOCK = stock;
-
     let [state, setState] = useState(initial);
 
     const sumaCarrito = () => {
-        if (STOCK > state) {
+        if (stock > state) {
             setState(++state);
         }
     }
@@ -26,7 +24,7 @@ const ItemCount = ({ stock, initial }) => {
                 <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
             </div>
             <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight">Agregar al carrito</button>
-            <p class="stock__item">Stock Actual: {STOCK}</p>
+            <p class="stock__item">Stock Actual: {stock}</p>
         </>
     )
 }
