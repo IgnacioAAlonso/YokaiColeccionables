@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink as Link } from 'react-router-dom';
 import ItemList from './ItemList'
 
-const ItemListContainer = () => {
+const ItemListContainer = (carrito, setCarrito) => {
     const productos = [
         {
             id: 1,
@@ -88,7 +88,7 @@ const ItemListContainer = () => {
             </div>
             <div class="container">
                 <div class="row" style={{ display: 'flex', justifyContent: 'center' }}>
-                    <ItemList productosTotales={productos} />
+                    <ItemList productosTotales={productos} carrito={carrito.carrito} setCarrito={carrito.setCarrito} />
                 </div>
             </div >
         </>

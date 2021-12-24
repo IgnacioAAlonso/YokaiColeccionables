@@ -1,27 +1,61 @@
 import React, { useState } from 'react'
 import "./Item.css"
+import ItemCount from './ItemCount'
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, carrito, setCarrito, type }) => {
 
     const { id, title, description, price, stock, pictureUrl } = item;
 
-    let [state, setState] = useState(1);
+    console.log(carrito)
 
-    const sumaCarrito = () => {
-        if (stock > state) {
-            setState(++state);
-        }
+    const Details = () => {
+        return (
+            <>
+                <div class="contenedor__detalles">
+                    <div class="contenedor__detalles-imagen">
+                        <img src={pictureUrl} class="contenedor__detalles-imagen-img" alt="Imagen Item" />
+                    </div>
+
+                    <div class="contenedor__detalles-item">
+                        <h2 class="contenedor__detalles-item-titulo">{title}</h2>
+                        <p class="contenedor__detalles-item-precio">${price}</p>
+
+                        <ItemCount stock={stock} initial={1} type="details" producto={item} carrito={carrito} setCarrito={setCarrito} />
+
+                        <h5 class="contenedor__detalles-item-subtitulo">{title}</h5>
+                        <p class="contenedor__detalles-item-descripcion">{description}</p>
+                    </div>
+                </div>
+            </>
+        )
     }
 
-    const restaCarrito = () => {
-        if (state > 1) {
-            setState(--state);
-        }
+    const Carrito = () => {
+        return (
+            <>
+                <div class="contenedor__detalles">
+                    <div class="contenedor__detalles-imagen">
+                        <img src={pictureUrl} class="contenedor__detalles-imagen-img" alt="Imagen Item" />
+                    </div>
+
+                    <div class="contenedor__detalles-item">
+                        <h2 class="contenedor__detalles-item-titulo">{title}</h2>
+                        <p class="contenedor__detalles-item-precio">${price}</p>
+
+                        <ItemCount stock={stock} initial={1} type="carrito" producto={item} carrito={carrito} setCarrito={setCarrito} />
+                    </div>
+                </div>
+            </>
+        )
     }
 
     return (
         <>
-            <div class="contenedor__detalles">
+            {(type === "carrito") ?
+                <Carrito /> :
+                <Details />
+            }
+            {/* <div class="contenedor__detalles">
                 <div class="contenedor__detalles-imagen">
                     <img src={pictureUrl} class="contenedor__detalles-imagen-img" alt="Imagen Item" />
                 </div>
@@ -30,19 +64,12 @@ const ItemDetail = ({ item }) => {
                     <h2 class="contenedor__detalles-item-titulo">{title}</h2>
                     <p class="contenedor__detalles-item-precio">${price}</p>
 
-                    <div class="contenedor__detalles-cantidad">
-                        <button class="contenedor__detalles-cantidad-resta" onClick={restaCarrito}>-</button>
-                        <p class="contenedor__detalles-cantidad-actual">{state}</p>
-                        <button class="contenedor__detalles-cantidad-suma" onClick={sumaCarrito}>+</button>
-                    </div>
-                    <button class="contenedor__detalles-btnCarrito" data-bs-toggle="offcanvas" href="#offcanvasRight">
-                        Agregar al carrito
-                    </button>
+                    <ItemCount stock={stock} initial={1} type="details" producto={item} carrito={carrito} setCarrito={setCarrito} />
 
                     <h5 class="contenedor__detalles-item-subtitulo">{title}</h5>
                     <p class="contenedor__detalles-item-descripcion">{description}</p>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

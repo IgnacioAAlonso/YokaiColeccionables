@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Nav,
     NavLink,
@@ -34,7 +34,11 @@ const Navbar = () => {
                 </NavLink>
 
                 <NavBtn>
-                    <Carrito />
+                    <a class="carritoContenedor" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
+                        <div>
+                            <i class="icon fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
                 </NavBtn>
             </Nav>
         </>

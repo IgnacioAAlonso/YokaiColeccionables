@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ItemDetail from "../Item/ItemDetail";
 
-const Carrito = () => {
+const Carrito = ({ productos }) => {
     return (
         <div>
             <a class="carritoContenedor" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
@@ -24,7 +25,15 @@ const Carrito = () => {
                         aria-label="Close"
                     ></button>
                 </div>
-                <div class="offcanvas-body"></div>
+                <div class="offcanvas-body">
+
+                    {(productos.length == 0) ?
+                        (<p> El carrito está vacio </p>) :
+                        (productos.map((producto) => (
+                            <ItemDetail item={producto} type="carrito" />
+                        )))
+                    }
+                </div>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Item.css"
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, type, producto, carrito, setCarrito }) => {
     let [state, setState] = useState(initial);
 
     const sumaCarrito = () => {
@@ -16,15 +16,66 @@ const ItemCount = ({ stock, initial }) => {
         }
     }
 
+    const agregarCarrito = () => {
+        setCarrito([...carrito, producto]);
+    }
+
+    const Card = () => {
+        return (
+            <>
+                <div class="contenedor__cantidad">
+                    <button class="btn btn-danger botones__item" onClick={restaCarrito}>-</button>
+                    <p class="cantidad__item">{state}</p>
+                    <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
+                </div>
+                <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight" onClick={agregarCarrito}>
+                    Agregar al carrito</button>
+                <p class="stock__item">Stock Actual: {stock}</p>
+            </>
+        )
+    }
+
+    const Details = () => {
+        return (
+            <>
+                <div class="contenedor__detalles-cantidad">
+                    <button class="contenedor__detalles-cantidad-resta" onClick={restaCarrito}>-</button>
+                    <p class="contenedor__detalles-cantidad-actual">{state}</p>
+                    <button class="contenedor__detalles-cantidad-suma" onClick={sumaCarrito}>+</button>
+                </div>
+                <button class="contenedor__detalles-btnCarrito" data-bs-toggle="offcanvas" href="#offcanvasRight" onClick={agregarCarrito}>
+                    Agregar al carrito
+                </button>
+            </>
+        )
+    }
+
+    const Carrito = () => {
+        return (
+            <>
+                <div class="contenedor__cantidad">
+                    <button class="btn btn-danger botones__item" onClick={restaCarrito}>-</button>
+                    <p class="cantidad__item">{state}</p>
+                    <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
-            <div class="contenedor__cantidad">
-                <button class="btn btn-danger botones__item" onClick={restaCarrito}>-</button>
-                <p class="cantidad__item">{state}</p>
-                <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
-            </div>
-            <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight">Agregar al carrito</button>
-            <p class="stock__item">Stock Actual: {stock}</p>
+            {/*             {(type === "card") ?
+                <Card /> :
+                <Details />
+            } */}
+            {(() => {
+                switch (type) {
+                    case "card": return <Card />;
+                    case "details": return <Details />;
+                    case "carrito": return <Carrito />;
+                    default: return <Details />;
+                }
+            })()}
         </>
     )
 }

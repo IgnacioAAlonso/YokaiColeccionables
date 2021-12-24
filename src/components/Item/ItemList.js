@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Item from './Item'
 
-const ItemList = ({ productosTotales }) => {
+const ItemList = ({ productosTotales, carrito, setCarrito }) => {
 
     const [productos, setProductos] = useState([]);
 
@@ -44,7 +44,7 @@ const ItemList = ({ productosTotales }) => {
     return (
         <>
             {category.map((producto) => (
-                <Item producto={producto} />
+                <Item producto={producto} carrito={carrito} setCarrito={setCarrito} />
             ))}
         </>
     )
