@@ -15,6 +15,7 @@ function useEventLi(eventType, handler) {
 
 const Item = ({ producto, carrito, setCarrito }) => {
     const { id, title, description, price, stock, pictureUrl } = producto;
+    let [state, setState] = useState(1);
     let nuevoItem = true;
 
 /*     const carritoList = () => {
@@ -56,7 +57,7 @@ const Item = ({ producto, carrito, setCarrito }) => {
             <div class="card-body">
                 <h5 class="card-title">{title}</h5>
                 <p class="card-text">{description}</p>
-                <ItemCount stock={stock} initial={1} type="card" producto={producto} carrito={carrito} setCarrito={setCarrito} />
+                <ItemCount stock={stock} type="card" producto={producto} state={state} setState={setState} />
             </div>
         </div >
     )

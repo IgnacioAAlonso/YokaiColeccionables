@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./Item.css"
 
-const ItemCount = ({ stock, initial, type, producto, carrito, setCarrito }) => {
-    let [state, setState] = useState(initial);
-
+const ItemCount = ({ stock, type, producto, state, setState }) => {
     
     const sumaCarrito = () => {
         if (stock > state) {

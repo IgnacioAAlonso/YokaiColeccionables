@@ -17,6 +17,8 @@ function useAddCarrito(eventType, handler) {
 const ItemDetail = ({ item, type }) => {
 
     const { id, title, description, price, stock, pictureUrl } = item;
+    let [state, setState] = useState(1);
+
     let nuevoItem = true;
     const carrito = useContext(CartContext).carrito;
     const setCarrito = useContext(CartContext).setCarrito;
@@ -53,7 +55,7 @@ const ItemDetail = ({ item, type }) => {
                         <h2 class="contenedor__detalles-item-titulo">{title}</h2>
                         <p class="contenedor__detalles-item-precio">${price}</p>
 
-                        <ItemCount stock={stock} initial={1} type="details" producto={item} carrito={carrito}  />
+                        <ItemCount stock={stock} type="details" producto={item} state={state} setState={setState} />
 
                         <h5 class="contenedor__detalles-item-subtitulo">{title}</h5>
                         <p class="contenedor__detalles-item-descripcion">{description}</p>
@@ -75,7 +77,7 @@ const ItemDetail = ({ item, type }) => {
                         <h2 class="contenedor__detalles-item-titulo">{title}</h2>
                         <p class="contenedor__detalles-item-precio">${price}</p>
 
-                        <ItemCount stock={stock} initial={1} type="carrito" producto={item} carrito={carrito}  />
+                        <ItemCount stock={stock} type="carrito" producto={item} carrito={carrito} state={state} setState={setState} />
                     </div>
                 </div>
             </>
