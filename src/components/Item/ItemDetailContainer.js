@@ -20,7 +20,7 @@ const ItemDetailContainer = ({ carrito, setCarrito }) => {
 
     return (
         <div>
-            <ItemDetail item={producto} carrito={carrito} setCarrito={setCarrito} />
+            <ItemDetail item={producto} />
         </div>
     )
 }

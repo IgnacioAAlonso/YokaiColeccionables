@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink as Link } from 'react-router-dom';
 import ItemDetail from "../Item/ItemDetail";
 
 const Carrito = ({ productos }) => {
@@ -33,6 +34,14 @@ const Carrito = ({ productos }) => {
                             <ItemDetail item={producto} type="carrito" />
                         )))
                     }
+
+                <Link to={{
+                    pathname: `/cart`
+                    }}>
+                    <div class="offcanvas-checkOut">
+                        <button data-bs-dismiss="offcanvas"> Finalizar Compra </button>
+                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

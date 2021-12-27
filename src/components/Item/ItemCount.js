@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Item.css"
 
 const ItemCount = ({ stock, initial, type, producto, carrito, setCarrito }) => {
     let [state, setState] = useState(initial);
 
+    
     const sumaCarrito = () => {
         if (stock > state) {
             setState(++state);
@@ -16,9 +17,16 @@ const ItemCount = ({ stock, initial, type, producto, carrito, setCarrito }) => {
         }
     }
 
+    const eventCarrito = new CustomEvent("AgregarAlCarrito")
     const agregarCarrito = () => {
-        setCarrito([...carrito, producto]);
+        window.dispatchEvent(eventCarrito);
     }
+
+    const eventCarritoList = new CustomEvent("AgregarAlCarritoList")
+    const agregarCarritoList = (evnt) => {
+        window.dispatchEvent(eventCarritoList);
+        evnt.stopPropagation();
+    }  
 
     const Card = () => {
         return (
@@ -28,7 +36,7 @@ const ItemCount = ({ stock, initial, type, producto, carrito, setCarrito }) => {
                     <p class="cantidad__item">{state}</p>
                     <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
                 </div>
-                <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight" onClick={agregarCarrito}>
+                <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight" onClick={agregarCarritoList}>
                     Agregar al carrito</button>
                 <p class="stock__item">Stock Actual: {stock}</p>
             </>
