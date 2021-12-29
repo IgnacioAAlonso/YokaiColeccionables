@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink as Link } from 'react-router-dom';
-import ItemDetail from "../Item/ItemDetail";
+import ItemDetail from "../Item/ItemDetail/ItemDetail";
+import CartContext from "../../context/CartContext";
+import "./Carrito.css"
 
-const Carrito = ({ productos }) => {
+const Carrito = () => {
+    const value = useContext(CartContext);
+    const productos = useContext(CartContext).carrito;
+    const clear = useContext(CartContext).clear;
+
+    const clearAll = () => {
+        clear();
+    }
+
     return (
         <div>
             <a class="carritoContenedor" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
@@ -35,13 +45,14 @@ const Carrito = ({ productos }) => {
                         )))
                     }
 
-                <Link to={{
-                    pathname: `/cart`
-                    }}>
                     <div class="offcanvas-checkOut">
-                        <button data-bs-dismiss="offcanvas"> Finalizar Compra </button>
+                        <Link to={{
+                            pathname: `/cart`
+                            }}>
+                            <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas"> Finalizar Compra </button>
+                        </Link>
+                        <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas" onClick={ ()=>{ clearAll(); } }> Borrar todo </button>
                     </div>
-                    </Link>
                 </div>
             </div>
         </div>

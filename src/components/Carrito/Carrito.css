@@ -1,0 +1,14 @@
+.offcanvas-checkOut{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.offcanvas-checkOutButton{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.offcanvas-checkOutButton:hover{
+    background-color: blanchedalmond;
+}

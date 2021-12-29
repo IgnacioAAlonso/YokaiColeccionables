@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink as Link } from 'react-router-dom';
 import ItemList from './ItemList'
 
-const ItemListContainer = (carrito, setCarrito) => {
+const ItemListContainer = () => {
     const productos = [
         {
             id: 1,
@@ -10,6 +10,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Figura de Batman: El Amanecer de la Justicia.",
             price: 100,
             stock: 10,
+            cantidad: 1,
             pictureUrl: "https://i0.wp.com/www.coheto.com/wp-content/uploads/2019/07/figura-batman-v-superman-batman.jpg?fit=800%2C800&ssl=1",
             category: "batman"
         },
@@ -19,6 +20,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Estatua de PVC de la línea 'DC Gallery'",
             price: 150,
             stock: 8,
+            cantidad: 1,
             pictureUrl: "https://dungeonmarvels.com/81864-large_default/figura-dc-movie-gallery-batman-1989-batman-41-cm.jpg",
             category: "batman"
         },
@@ -28,6 +30,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Batman en su primera aparición en el número 27 de Detective Comics.",
             price: 200,
             stock: 30,
+            cantidad: 1,
             pictureUrl: "https://comicsbarcelona.com/80427-large_default/figura-batman-primera-aparicion-anos-40-eaglemoss-comprar.jpg",
             category: "batman"
         },
@@ -37,6 +40,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Figura de la segunda película, El Caballero Oscuro.",
             price: 670,
             stock: 20,
+            cantidad: 1,
             pictureUrl: "https://collectoys.es/8947/figura-batman-sh-figuarts-the-dark-knight-bandai.jpg",
             category: "batman"
         },
@@ -46,6 +50,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Figura de Batman de la Película Batman V Superman.",
             price: 500,
             stock: 3,
+            cantidad: 1,
             pictureUrl: "https://dejadepensar.com/wp-content/uploads/2018/01/disfraz-armadura-batman-vs-superman.jpg",
             category: "batman"
         },
@@ -55,6 +60,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Figura basada en el juego de PS4",
             price: 500,
             stock: 3,
+            cantidad: 1,
             pictureUrl: "https://media.vandal.net/i/853x853/10-2019/201910211024434_1.jpg",
             category: "spiderman"
         },
@@ -64,6 +70,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Marvel y Avengers: tal y como aparece en Spider-Man Homecoming.",
             price: 500,
             stock: 3,
+            cantidad: 1,
             pictureUrl: "https://lafrikileria.com/40630-large_default/figura-spider-man-diamond-marvel-gallery-25-cm.jpg",
             category: "spiderman"
         },
@@ -73,6 +80,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             description: "Kotobukiya nos presenta una nueva figura de línea 'Marvel Comics'",
             price: 500,
             stock: 3,
+            cantidad: 1,
             pictureUrl: "https://toystnt.com/pictures/4ac37319573efdb0b73fb379c123c85d.jpg",
             category: "xmen"
         }
@@ -88,7 +96,7 @@ const ItemListContainer = (carrito, setCarrito) => {
             </div>
             <div class="container">
                 <div class="row" style={{ display: 'flex', justifyContent: 'center' }}>
-                    <ItemList productosTotales={productos} carrito={carrito.carrito} setCarrito={carrito.setCarrito} />
+                    <ItemList productosTotales={productos}/>
                 </div>
             </div >
         </>

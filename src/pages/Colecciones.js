@@ -1,10 +1,10 @@
 import React from 'react'
-import ItemListContainer from '../components/Item/ItemListContainer';
+import ItemListContainer from '../components/Item/ItemList/ItemListContainer';
 
-const Colecciones = (carrito, setCarrito) => {
+const Colecciones = () => {
     return (
         <>
-            <ItemListContainer carrito={carrito.carrito} setCarrito={carrito.setCarrito} />
+            <ItemListContainer/>
         </>
     )
 }

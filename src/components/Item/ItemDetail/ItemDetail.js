@@ -1,48 +1,24 @@
 import React, { useState, useEffect, useContext} from 'react'
-import { useParams } from 'react-router-dom';
-import "./Item.css"
-import ItemCount from './ItemCount'
-import CartContext from '../../context/CartContext';
+import "../Item.css"
+import ItemCount from '../ItemCount'
+import CartContext from '../../../context/CartContext';
 
-function useAddCarrito(eventType, handler) {  
+/* function useAddCarrito(eventType, handler) {  
     useEffect(() => {
-
+    
         window.addEventListener(eventType, handler);
         return () => {
             window.removeEventListener(eventType, handler);
         }
-    }, [handler])
-}
+}, [handler])
+} */
 
 const ItemDetail = ({ item, type }) => {
 
-    const { id, title, description, price, stock, pictureUrl } = item;
+    const { id, title, description, price, stock, cantidad, pictureUrl } = item;
     let [state, setState] = useState(1);
-
-    let nuevoItem = true;
     const carrito = useContext(CartContext).carrito;
-    const setCarrito = useContext(CartContext).setCarrito;
     
-    useAddCarrito('AgregarAlCarrito', ()=>{
-
-        if (item.title != undefined & carrito != undefined) {
-
-                for (let i = 0; i < carrito.length; i++) {
-                    if (carrito[i].id == item.id) {
-                        nuevoItem = false;
-                    }
-                }
-            
-                if (nuevoItem == true) {
-                    setCarrito([...carrito, item]);
-                }
-            }
-        
-        }
-
-    )
-    
-
     const Details = () => {
         return (
             <>
@@ -68,16 +44,16 @@ const ItemDetail = ({ item, type }) => {
     const Carrito = () => {
         return (
             <>
-                <div class="contenedor__detalles">
+                <div class="contenedor__detallesCarrito">
                     <div class="contenedor__detalles-imagen">
-                        <img src={pictureUrl} class="contenedor__detalles-imagen-img" alt="Imagen Item" />
+                        <img src={pictureUrl} class="contenedor__detalles-imagen-imgCarrito" alt="Imagen Item" />
                     </div>
 
                     <div class="contenedor__detalles-item">
-                        <h2 class="contenedor__detalles-item-titulo">{title}</h2>
-                        <p class="contenedor__detalles-item-precio">${price}</p>
+                        <h2 class="contenedor__detalles-item-tituloCarrito">{title}</h2>
+                        <p class="contenedor__detalles-item-precioCarrito">${price}</p>
 
-                        <ItemCount stock={stock} type="carrito" producto={item} carrito={carrito} state={state} setState={setState} />
+                        <ItemCount stock={stock} type="carrito" producto={item} carrito={carrito} state={cantidad} setState={setState} />
                     </div>
                 </div>
             </>

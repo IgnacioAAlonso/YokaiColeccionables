@@ -4,10 +4,8 @@ import Navbar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Index'
 import Colecciones from './pages/Colecciones';
-import ItemDetailContainer from './components/Item/ItemDetailContainer';
+import ItemDetailContainer from './components/Item/ItemDetail/ItemDetailContainer';
 import Carrito from './components/Carrito/Carrito';
-import { ThemeContext } from 'styled-components';
-import CartContext from './context/CartContext';
 import CustomCarrito from './components/Carrito/CustomCarrito';
 
 function App() {
@@ -15,21 +13,21 @@ function App() {
   const [carrito, setCarrito] = useState([])
 
   return (
-    <CartContext.Provider value={{carrito, setCarrito}}>
+    <CustomCarrito>
 
-    <Router>
-      <Navbar />
-      <Routes  >
-        <Route path='/' element={<Home />} />
-        <Route path='/colecciones' element={<Colecciones carrito={carrito} setCarrito={setCarrito} />} />
-        <Route path='/category/:id' element={<Home />} />
-        <Route path='/item/:id' element={<ItemDetailContainer carrito={carrito} setCarrito={setCarrito} />} />
-        <Route path='/cart'/>
-      </Routes >
-      <Carrito productos={carrito} />
-    </Router>
+      <Router>
+        <Navbar />
+        <Routes  >
+          <Route path='/' element={<Home />} />
+          <Route path='/colecciones' element={<Colecciones/>} />
+          <Route path='/category/:id' element={<Home />} />
+          <Route path='/item/:id' element={<ItemDetailContainer/>} />
+          <Route path='/cart'/>
+        </Routes >
+        <Carrito/>
+      </Router>
 
-    </CartContext.Provider>
+    </CustomCarrito>
   );
 }
 

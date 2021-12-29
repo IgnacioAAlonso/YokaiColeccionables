@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemListContainer from '../components/Item/ItemListContainer'
+import ItemListContainer from '../components/Item/ItemList/ItemListContainer'
 import Titles from '../components/Titles'
 
 const Home = () => {
