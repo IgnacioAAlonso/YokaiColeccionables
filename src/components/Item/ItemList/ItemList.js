@@ -14,12 +14,20 @@ const ItemList = ({ productosTotales }) => {
         }
     });
     const [category, setCategory] = useState([]);
+    console.log("Categoria: " + id);
 
     useEffect(() => {
         const API = new Promise((resolve, reject) => {
             setTimeout(() => {
                 setProductos(productosTotales)
-                setCategory(productosTotales)
+                // setCategory(productosTotales)
+                setCategory(productosTotales.filter(function (element) {
+                    if (id === undefined) {
+                        return element;
+                    } else {
+                        return element.category === id;
+                    }
+                }))
                 resolve(true)
             }, 2000)
         })
@@ -44,7 +52,7 @@ const ItemList = ({ productosTotales }) => {
     return (
         <>
             {category.map((producto) => (
-                <Item producto={producto}/>
+                <Item producto={producto} />
             ))}
         </>
     )

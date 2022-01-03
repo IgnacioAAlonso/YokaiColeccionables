@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "./Item.css"
 import CartContext from '../../context/CartContext'
 
 const ItemCount = ({ stock, type, producto, state, setState }) => {
-    
+
     const setCarrito = useContext(CartContext).addItem;
     const setQuantity = useContext(CartContext).setQuantity;
     const removeItem = useContext(CartContext).removeItem;
@@ -34,8 +34,8 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
                     <p class="cantidad__item">{state}</p>
                     <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
                 </div>
-                <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight" 
-                 onClick={ ()=>{ setCarrito(producto, state); }}>
+                <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight"
+                    onClick={() => { setCarrito(producto, state); }}>
                     Agregar al carrito</button>
                 <p class="stock__item">Stock Actual: {stock}</p>
             </>
@@ -43,7 +43,7 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
     }
 
     const Details = () => {
-        
+
         return (
             <>
                 <div class="contenedor__detalles-cantidad">
@@ -51,15 +51,15 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
                     <p class="contenedor__detalles-cantidad-actual">{state}</p>
                     <button class="contenedor__detalles-cantidad-suma" onClick={sumaCarrito}>+</button>
                 </div>
-                <button class="contenedor__detalles-btnCarrito" data-bs-toggle="offcanvas" href="#offcanvasRight" 
-                onClick={ ()=>{ setCarrito(producto, state); } }>
+                <button class="contenedor__detalles-btnCarrito" data-bs-toggle="offcanvas" href="#offcanvasRight"
+                    onClick={() => { setCarrito(producto, state); }}>
                     Agregar al carrito
                 </button>
             </>
         )
     }
 
-    const Carrito = () => { 
+    const Carrito = () => {
         return (
             <>
                 <div class="contenedor__cantidad">
@@ -67,7 +67,7 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
                     <p class="cantidad__item">{state}</p>
                     <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
                 </div>
-                <button class="" onClick={ ()=>{ deleteItem(producto.id)} }>Eliminar</button>
+                <button class="" onClick={() => { deleteItem(producto.id) }}>Eliminar</button>
             </>
         )
     }

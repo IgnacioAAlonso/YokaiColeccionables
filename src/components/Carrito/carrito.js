@@ -48,10 +48,10 @@ const Carrito = () => {
                     <div class="offcanvas-checkOut">
                         <Link to={{
                             pathname: `/cart`
-                            }}>
+                        }}>
                             <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas"> Finalizar Compra </button>
                         </Link>
-                        <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas" onClick={ ()=>{ clearAll(); } }> Borrar todo </button>
+                        <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas" onClick={() => { clearAll(); }}> Borrar todo </button>
                     </div>
                 </div>
             </div>

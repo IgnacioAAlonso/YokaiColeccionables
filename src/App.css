@@ -34,3 +34,46 @@
 .cotenedor__categorias button:hover {
   background: #e7e7e7;
 }
+
+/* ------------ carousel ---------- */
+
+.carousel-itemButton {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 50px;
+
+  border-radius: 20px;
+  background: white;
+  font-weight: bold;
+  border: solid black 2px;
+}
+.carousel-itemButton:hover {
+  background: rgb(207, 207, 207);
+}
+
+.contenedor__informacion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 90px 20px 90px;
+  margin-top: 30px;
+  color: white;
+}
+
+.contenedor__informacionDiv {
+  text-align: center;
+  font-size: 46px;
+}
+
+.contenedor__informacionTit {
+  font-weight: bold;
+  font-size: large;
+  letter-spacing: 1.2px;
+}
+
+.contenedor__informacionSubTit {
+  font-size: small;
+  letter-spacing: 1.2px;
+}

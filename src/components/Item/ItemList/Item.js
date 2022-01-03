@@ -16,7 +16,6 @@ import ItemCount from '../ItemCount'
 const Item = ({ producto }) => {
     const { id, title, description, price, stock, pictureUrl } = producto;
     let [state, setState] = useState(1);
- 
     return (
         <div class="card card_item" style={{ width: '18rem' }}>
             <Link to={{
@@ -26,7 +25,7 @@ const Item = ({ producto }) => {
             >
                 <img src={pictureUrl} class="card-img-top imagen_item" alt="Catalogo" />
             </Link>
-            <div class="card-body">
+            <div class="card-body card__bodyItem">
                 <h5 class="card-title">{title}</h5>
                 <p class="card-text">{description}</p>
                 <ItemCount stock={stock} type="card" producto={producto} state={state} setState={setState} />

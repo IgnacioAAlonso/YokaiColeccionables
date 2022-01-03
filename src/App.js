@@ -7,6 +7,7 @@ import Colecciones from './pages/Colecciones';
 import ItemDetailContainer from './components/Item/ItemDetail/ItemDetailContainer';
 import Carrito from './components/Carrito/Carrito';
 import CustomCarrito from './components/Carrito/CustomCarrito';
+import ItemListContainer from './components/Item/ItemList/ItemListContainer';
 
 function App() {
   // Estado del carrito
@@ -19,12 +20,11 @@ function App() {
         <Navbar />
         <Routes  >
           <Route path='/' element={<Home />} />
-          <Route path='/colecciones' element={<Colecciones/>} />
-          <Route path='/category/:id' element={<Home />} />
-          <Route path='/item/:id' element={<ItemDetailContainer/>} />
-          <Route path='/cart'/>
+          <Route path='/colecciones' element={<Colecciones />} />
+          <Route path='/category/:id' element={<Colecciones />} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
+          <Route path='/cart' />
         </Routes >
-        <Carrito/>
       </Router>
 
     </CustomCarrito>
