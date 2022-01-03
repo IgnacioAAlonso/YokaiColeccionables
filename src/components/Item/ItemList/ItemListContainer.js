@@ -21,12 +21,12 @@ const ItemListContainer = () => {
             price: 150,
             stock: 8,
             cantidad: 1,
-            pictureUrl: "https://dungeonmarvels.com/81864-large_default/figura-dc-movie-gallery-batman-1989-batman-41-cm.jpg",
+            pictureUrl: "https://www.eltemplodelguerrero.com/images/large/d/Batman-1989-Figura-Batman-DC-Movie-Gallery-Diamond-Select_LRG.jpg",
             category: "batman"
         },
         {
             id: 3,
-            title: "FIGURA BATMAN DECADES THROUGH THE AGES",
+            title: "Figura Batman Decades Through The Ages",
             description: "Batman en su primera aparición en el número 27 de Detective Comics.",
             price: 200,
             stock: 30,

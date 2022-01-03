@@ -1,14 +1,26 @@
-.offcanvas-checkOut{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.offcanvas-checkOut {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.offcanvas-checkOutButton{
-    border-radius: 10px;
-    padding: 5px;
+.offcanvas-checkOutButton {
+  border-radius: 10px;
+  padding: 5px;
 }
 
-.offcanvas-checkOutButton:hover{
-    background-color: blanchedalmond;
+.offcanvas-checkOutButton:hover {
+  background-color: #ecb365;
+}
+
+.offcanvasBackground {
+  background-color: #064663;
+}
+
+.offcanvasBackground div h5 {
+  color: white;
+}
+
+p {
+  color: white;
 }

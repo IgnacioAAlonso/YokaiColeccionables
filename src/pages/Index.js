@@ -37,7 +37,7 @@ const Home = () => {
                     </div>
                     <div class="carousel-item">
                         <img src="https://images.alphacoders.com/575/thumb-1920-575815.png" class="d-block w-100" alt="Banner Cyclops" />
-                        <Link to="/nostros">
+                        <Link to="/nosotros">
                             <button class="carousel-itemButton">
                                 Nosotros
                             </button>
@@ -110,9 +110,9 @@ const Home = () => {
             <div class="contenedorInfo">
                 <div class="contenedorInfo__Redes">
                     <ul>
-                        <li><i class="fab fa-facebook-f"></i></li>
-                        <li><i class="fab fa-instagram"></i></li>
-                        <li><i class="fab fa-pinterest"></i></li>
+                        <li> <a href={'http://facebook.com'} target="_blank"> <i class="fab fa-facebook-f"></i> </a></li>
+                        <li> <a href={'http://instagram.com'} target="_blank"> <i class="fab fa-instagram"></i> </a></li>
+                        <li> <a href={'http://pinterest.com'} target="_blank"> <i class="fab fa-pinterest"></i> </a></li>
                     </ul>
                 </div>
 

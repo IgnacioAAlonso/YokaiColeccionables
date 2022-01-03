@@ -24,7 +24,7 @@ const Navbar = () => {
                     <NavLink to="/contacto" activeStyle>
                         Contacto
                     </NavLink>
-                    <NavLink to="/nostros" activeStyle>
+                    <NavLink to="/nosotros" activeStyle>
                         Nosotros
                     </NavLink>
                 </NavMenu>
@@ -34,11 +34,6 @@ const Navbar = () => {
                 </NavLink>
 
                 <NavBtn>
-                    {/* <a class="carritoContenedor" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
-                        <div>
-                            <i class="icon fas fa-shopping-cart"></i>
-                        </div>
-                    </a> */}
                     <Carrito />
                 </NavBtn>
             </Nav>

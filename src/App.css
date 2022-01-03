@@ -187,6 +187,58 @@
   justify-content: center;
 }
 
-.contenedorInfo__Redes ul li {
-  cursor: pointer;
+.contenedorInfo__Redes ul li a {
+  color: white;
+}
+
+/*---- NOSTROS -----*/
+
+.contenedor__nosotros {
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+  padding: 40px 0;
+  height: 700px;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 20px;
+}
+
+.contenedor__nosotros-square {
+  background-image: url("https://www.bacanika.com/images/HISTORIAS/IMPERDIBLE/RUTA_GEEK/Rocket-store-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contenedor__nosotros-rectangle {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.contenedor__nosotros-rectangleTitulo {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor__nosotros-rectangleTitulo h3 {
+  font-weight: bold;
+  font-size: 56px;
+}
+
+.contenedor__nosotros-rectangleTexto {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor__nosotros-rectangleTexto p {
+  text-align: center;
+  font-size: 22px;
 }

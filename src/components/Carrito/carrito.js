@@ -22,7 +22,7 @@ const Carrito = () => {
             </a>
 
             <div
-                class="offcanvas offcanvas-end"
+                class="offcanvas offcanvas-end offcanvasBackground"
                 tabindex="-1"
                 id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel"
