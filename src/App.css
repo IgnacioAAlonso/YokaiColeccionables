@@ -53,12 +53,17 @@
   background: rgb(207, 207, 207);
 }
 
-.contenedor__informacion {
+.contenedor__informacionBox {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.contenedor__informacion {
+  width: 85%;
   display: flex;
   justify-content: space-between;
   padding: 20px 90px 20px 90px;
-  margin-top: 30px;
   color: white;
 }
 
@@ -76,4 +81,112 @@
 .contenedor__informacionSubTit {
   font-size: small;
   letter-spacing: 1.2px;
+}
+
+/* ------------ Box Categorias ---------- */
+
+.contenedorBox {
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+  padding: 40px 0;
+  height: 500px;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+.contenedorBox__square {
+  background-image: url("https://www.lacasadeel.net/wp-content/uploads/2021/12/Batman-118-dc.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(100%);
+}
+
+.contenedorBox__rectangle {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+.contenedorBox__rectangle-cat--1 {
+  background-image: url("https://www.akiracomics.com/imagenes/porreferencia?identidad=c2b88343-f32c-4ac1-a6df-cf7cf8a21355&referencia=&ancho=&alto=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(100%);
+}
+
+.contenedorBox__rectangle-cat--2 {
+  background-image: url("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/06/mejores-comics-x-men.jpg?itok=Z53eeLsh");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(100%);
+}
+
+.contenedorBox__rectangle-cat--1:hover {
+  box-shadow: inset 0px 0px 90px #000000;
+}
+.contenedorBox__rectangle-cat--2:hover {
+  box-shadow: inset 0px 0px 90px #000000;
+}
+.contenedorBox__square:hover {
+  box-shadow: inset 0px 0px 90px #000000;
+}
+.contenedorBox__textos button:hover {
+  box-shadow: inset 0px 0px 90px #000000;
+}
+
+.contenedorBox__textos {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorBox__textos h3 {
+  font-weight: bold;
+  font-size: 56px;
+  -webkit-text-stroke: 1.5px black;
+}
+
+.contenedorBox__textos button {
+  padding: 10px;
+  color: white;
+  background: #686868;
+  border: white solid;
+}
+
+/* Informacion */
+
+.contenedorInfo {
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.contenedorInfo ul {
+  list-style: none;
+}
+
+.contenedorInfo ul li {
+  margin: 15px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.contenedorInfo__Redes ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contenedorInfo__Redes ul li {
+  cursor: pointer;
 }

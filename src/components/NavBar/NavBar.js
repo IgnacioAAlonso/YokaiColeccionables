@@ -25,7 +25,7 @@ const Navbar = () => {
                         Contacto
                     </NavLink>
                     <NavLink to="/nostros" activeStyle>
-                        Nostros
+                        Nosotros
                     </NavLink>
                 </NavMenu>
 

@@ -21,25 +21,25 @@ const Home = () => {
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="https://www.cuevadelobo.com/wp-content/uploads/2014/08/Batman-4.jpg" class="d-block w-100" alt="Banner Batman" />
-                        <Link to="/category/batman">
+                        <Link to="/colecciones">
                             <button class="carousel-itemButton">
-                                Batman
+                                Colecciones
                             </button>
                         </Link>
                     </div>
                     <div class="carousel-item">
                         <img src="https://cdn.wallpapersafari.com/5/93/R5lFOX.jpg" class="d-block w-100" alt="Banner SpiderMan" />
-                        <Link to="/category/spiderman">
+                        <Link to="/contacto">
                             <button class="carousel-itemButton">
-                                Spider-Man
+                                Contacto
                             </button>
                         </Link>
                     </div>
                     <div class="carousel-item">
                         <img src="https://images.alphacoders.com/575/thumb-1920-575815.png" class="d-block w-100" alt="Banner Cyclops" />
-                        <Link to="/category/xmen">
+                        <Link to="/nostros">
                             <button class="carousel-itemButton">
-                                X-Men
+                                Nosotros
                             </button>
                         </Link>
                     </div>
@@ -54,22 +54,74 @@ const Home = () => {
                 </button>
             </div>
 
-            <div class="contenedor__informacion">
-                <div class="contenedor__informacionDiv">
-                    <i class="fas fa-truck"></i>
-                    <p class="contenedor__informacionTit">Envios a toda la Argentina </p>
-                    <p class="contenedor__informacionSubTit">Envio con Mercado Libre o Correo</p>
+            <div class="contenedor__informacionBox">
+                <div class="contenedor__informacion">
+                    <div class="contenedor__informacionDiv">
+                        <i class="fas fa-truck"></i>
+                        <p class="contenedor__informacionTit">Envios a toda la Argentina </p>
+                        <p class="contenedor__informacionSubTit">Envio con Mercado Libre o Correo</p>
+                    </div>
+                    <div class="contenedor__informacionDiv contenedor__informacionDiv">
+                        <i class="fas fa-credit-card"></i>
+                        <p class="contenedor__informacionTit">Pagá como quieras</p>
+                        <p class="contenedor__informacionSubTit">Tarjetas, efectivo y más</p>
+                    </div>
+                    <div class="contenedor__informacionDiv contenedor__informacionDiv">
+                        <i class="fas fa-shield-alt"></i>
+                        <p class="contenedor__informacionTit">Comprá seguro</p>
+                        <p class="contenedor__informacionSubTit">Simpre cuidamos tu medio de pago</p>
+                    </div>
                 </div>
-                <div class="contenedor__informacionDiv contenedor__informacionDiv">
-                    <i class="fas fa-credit-card"></i>
-                    <p class="contenedor__informacionTit">Pagá como quieras</p>
-                    <p class="contenedor__informacionSubTit">Tarjetas, efectivo y más</p>
+            </div>
+
+            <div class="contenedorBox">
+
+                <div class="contenedorBox__square">
+                    <div class="contenedorBox__textos">
+                        <h3>Batman</h3>
+                        <Link to="/category/batman">
+                            <button>Ver Colección</button>
+                        </Link>
+                    </div>
                 </div>
-                <div class="contenedor__informacionDiv contenedor__informacionDiv">
-                    <i class="fas fa-shield-alt"></i>
-                    <p class="contenedor__informacionTit">Comprá seguro</p>
-                    <p class="contenedor__informacionSubTit">Simpre cuidamos tu medio de pago</p>
+
+                <div class="contenedorBox__rectangle">
+
+                    <div class="contenedorBox__rectangle-cat--1">
+                        <div class="contenedorBox__textos">
+                            <h3>Spider-Man</h3>
+                            <Link to="/category/spiderman">
+                                <button>Ver Colección</button>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div class="contenedorBox__rectangle-cat--2">
+                        <div class="contenedorBox__textos">
+                            <h3>X-Men</h3>
+                            <Link to="/category/xmen">
+                                <button>Ver Colección</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <div class="contenedorInfo">
+                <div class="contenedorInfo__Redes">
+                    <ul>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                        <li><i class="fab fa-pinterest"></i></li>
+                    </ul>
+                </div>
+
+                <ul>
+                    <li><i class="fab fa-whatsapp"></i> 5491124668858</li>
+                    <li><i class="fas fa-phone"></i> 11 4322-1597</li>
+                    <li><i class="far fa-envelope"></i> yokai@gmail.com.ar</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Lavalle 623 Local 10 - Viamonte 621 - Santa Fe 1714 Local 4</li>
+                </ul>
             </div>
         </div>
     )
