@@ -8,6 +8,7 @@ const Carrito = () => {
     const value = useContext(CartContext);
     const productos = useContext(CartContext).carrito;
     const clear = useContext(CartContext).clear;
+    const getCantidad = useContext(CartContext).getCantidadTotal;
 
     const clearAll = () => {
         clear();
@@ -18,6 +19,7 @@ const Carrito = () => {
             <a class="carritoContenedor" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
                 <div>
                     <i class="carritoContenedor_icono icon fas fa-shopping-cart"></i>
+                    <p> {getCantidad()} </p>
                 </div>
             </a>
 

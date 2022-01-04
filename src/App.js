@@ -6,6 +6,7 @@ import Home from './pages/Index'
 import Colecciones from './pages/Colecciones';
 import ItemDetailContainer from './components/Item/ItemDetail/ItemDetailContainer';
 import Nosotros from './pages/Nosotros';
+import Cart from './components/Carrito/Cart';
 import Carrito from './components/Carrito/Carrito';
 import CustomCarrito from './components/Carrito/CustomCarrito';
 import ItemListContainer from './components/Item/ItemList/ItemListContainer';
@@ -25,7 +26,7 @@ function App() {
           <Route path='/category/:id' element={<Colecciones />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/nosotros' element={<Nosotros />} />
-          <Route path='/cart' />
+          <Route path='/cart' element={<Cart />} />
         </Routes >
       </Router>
 
