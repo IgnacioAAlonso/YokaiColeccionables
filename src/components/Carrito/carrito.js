@@ -17,9 +17,9 @@ const Carrito = () => {
     return (
         <div>
             <a class="carritoContenedor" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
-                <div>
+                <div class="carritoContenedor_iconoCantidad">
                     <i class="carritoContenedor_icono icon fas fa-shopping-cart"></i>
-                    <p> {getCantidad()} </p>
+                    <p class="carritoContenedor_cantidad"> {getCantidad()} </p>
                 </div>
             </a>
 
@@ -51,7 +51,7 @@ const Carrito = () => {
                         <Link to={{
                             pathname: `/cart`
                         }}>
-                            <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas"> Finalizar Compra </button>
+                            <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas"> Iniciar Compra </button>
                         </Link>
                         <button class="offcanvas-checkOutButton" data-bs-dismiss="offcanvas" onClick={() => { clearAll(); }}> Borrar todo </button>
                     </div>

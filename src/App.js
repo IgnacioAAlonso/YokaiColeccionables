@@ -12,9 +12,6 @@ import CustomCarrito from './components/Carrito/CustomCarrito';
 import ItemListContainer from './components/Item/ItemList/ItemListContainer';
 
 function App() {
-  // Estado del carrito
-  const [carrito, setCarrito] = useState([])
-
   return (
     <CustomCarrito>
 

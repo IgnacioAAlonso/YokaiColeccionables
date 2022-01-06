@@ -7,6 +7,7 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
     const setCarrito = useContext(CartContext).addItem;
     const setQuantity = useContext(CartContext).setQuantity;
     const removeItem = useContext(CartContext).removeItem;
+    const getCantidad = useContext(CartContext).getPrecioTotal;
 
     const sumaCarrito = () => {
         if (stock > state) {
@@ -24,6 +25,11 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
 
     const deleteItem = (id) => {
         removeItem(id);
+    }
+
+    var evt = new CustomEvent("MyEventType");
+    const callEvent = () => {
+        window.dispatchEvent(evt)
     }
 
     const Card = () => {
@@ -72,6 +78,22 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
         )
     }
 
+    const Cart = () => {
+        return (
+            <>
+                <div class="contenedor__cantidad">
+                    <button class="btn btn-danger botones__item" onClick={restaCarrito}>-</button>
+                    <p class="cantidadCart__item">{state}</p>
+                    <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
+                </div>
+                <div class="contenedor__iconsCart">
+                    <button class="contenedor__iconsCart--blue" onClick={() => { callEvent() }}><i class="fas fa-sync"></i></button>
+                    <button class="contenedor__iconsCart--red" onClick={() => { deleteItem(producto.id) }}><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             {(() => {
@@ -79,6 +101,7 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
                     case "card": return <Card />;
                     case "details": return <Details />;
                     case "carrito": return <Carrito />;
+                    case "cart": return <Cart />;
                     default: return <Details />;
                 }
             })()}

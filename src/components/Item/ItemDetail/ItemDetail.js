@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "../Item.css"
 import ItemCount from '../ItemCount'
 import CartContext from '../../../context/CartContext';
@@ -18,7 +18,7 @@ const ItemDetail = ({ item, type }) => {
     const { id, title, description, price, stock, cantidad, pictureUrl } = item;
     let [state, setState] = useState(1);
     const carrito = useContext(CartContext).carrito;
-    
+
     const Details = () => {
         return (
             <>
@@ -60,12 +60,35 @@ const ItemDetail = ({ item, type }) => {
         )
     }
 
+    const Cart = () => {
+        return (
+            <>
+                <div class="contenedor__detallesCart">
+                    <div class="contenedor__detallesCart-imagen">
+                        <img src={pictureUrl} class="contenedor__detallesCart-imagen-imgCarrito" alt="Imagen Item" />
+                    </div>
+
+                    <div class="contenedor__detallesCart-item">
+                        <h2 class="contenedor__detalles-item-tituloCarrito">{title}</h2>
+                        <p class="contenedor__detalles-item-precioCarrito">${price}</p>
+
+                        <ItemCount stock={stock} type="cart" producto={item} carrito={carrito} state={cantidad} setState={setState} />
+                    </div>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
-            {(type === "carrito") ?
-                <Carrito /> :
-                <Details />
-            }
+            {(() => {
+                switch (type) {
+                    case "details": return <Details />;
+                    case "carrito": return <Carrito />;
+                    case "cart": return <Cart />;
+                    default: return <Details />;
+                }
+            })()}
         </>
     )
 }
