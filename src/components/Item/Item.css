@@ -129,6 +129,14 @@
   color: white;
 }
 
+.contenedor__detalles-cantidad-resta:hover {
+  background-color: #2e2e2e;
+}
+
+.contenedor__detalles-cantidad-suma:hover {
+  background-color: #2e2e2e;
+}
+
 .contenedor__detalles-btnCarrito {
   margin-top: 7%;
   margin-bottom: 7%;

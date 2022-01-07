@@ -1,53 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Item from './Item'
+import { collection, getDocs, getFirestore, where, query } from "firebase/firestore"
 
-const ItemList = ({ productosTotales }) => {
-
-    const [productos, setProductos] = useState([]);
-
+const ItemList = ({ }) => {
     const { id } = useParams();
-
-    const filtered = productos.filter(function (element) {
-        if (id === undefined) {
-            return element;
-        }
-    });
     const [category, setCategory] = useState([]);
-    console.log("Categoria: " + id);
 
     useEffect(() => {
-        const API = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                setProductos(productosTotales)
-                // setCategory(productosTotales)
-                setCategory(productosTotales.filter(function (element) {
-                    if (id === undefined) {
-                        return element;
-                    } else {
-                        return element.category === id;
-                    }
-                }))
-                resolve(true)
-            }, 2000)
-        })
-    }, [])
+        const db = getFirestore();
 
-    useEffect(() => {
-        API.then((res) => { setCategory(res) })
-    }, [id])
-
-    const API = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(productos.filter(function (element) {
+        const data = collection(db, "items");
+        getDocs(data).then((snapshot) => {
+            setCategory(snapshot.docs.map((element) => {
                 if (id === undefined) {
-                    return element;
+                    return element.data();
                 } else {
                     return element.category === id;
                 }
             }))
-        }, 1000)
-    })
+        })
+
+    }, [])
+
+    useEffect(() => {
+        const db = getFirestore();
+        if (id === undefined) {
+            const data = collection(db, "items");
+            getDocs(data).then((snapshot) => {
+                setCategory(snapshot.docs.map((element) => {
+                    return element.data();
+                }))
+            })
+        } else {
+            const q = query(collection(db, "items"), where('category', '==', id));
+            getDocs(q).then((res) => {
+                setCategory(res.docs.map((doc) => ({ ...doc.data() })));
+            })
+        }
+    }, [id])
 
     return (
         <>

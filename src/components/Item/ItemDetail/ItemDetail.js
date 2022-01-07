@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import "../Item.css"
 import ItemCount from '../ItemCount'
-import CartContext from '../../../context/CartContext';
+import CartContext from '../../Carrito/context/CartContext';
 
 /* function useAddCarrito(eventType, handler) {  
     useEffect(() => {

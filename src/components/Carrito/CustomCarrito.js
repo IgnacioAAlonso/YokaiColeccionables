@@ -1,4 +1,4 @@
-import CartContext from "../../context/CartContext";
+import CartContext from "./context/CartContext";
 import React, { useState } from "react";
 
 function CustomCarrito({ children }) {

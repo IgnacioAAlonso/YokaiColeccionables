@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Index'
@@ -12,6 +12,7 @@ import CustomCarrito from './components/Carrito/CustomCarrito';
 import ItemListContainer from './components/Item/ItemList/ItemListContainer';
 
 function App() {
+
   return (
     <CustomCarrito>
 

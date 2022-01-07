@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { NavLink as Link } from 'react-router-dom';
 import ItemDetail from "../Item/ItemDetail/ItemDetail";
-import CartContext from "../../context/CartContext";
+import CartContext from "./context/CartContext";
 
 
 function useAddCarrito(eventType, handler) {
@@ -33,7 +33,7 @@ const Cart = () => {
 
     return (
         <div>
-            <div> <h3>Carrito de Compra</h3></div>
+            <div> <h3 class="cart-title">Carrito de Compras</h3></div>
             {(productos.length == 0) ?
                 (<h4> El carrito está vacio </h4>)
                 :
