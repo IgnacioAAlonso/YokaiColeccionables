@@ -97,3 +97,23 @@ h4 {
 .cart-checkOutTotalButton:hover {
   background-color: #04293a;
 }
+
+.cart-form{
+  width: 80%;
+  max-width: 800px;
+  margin: 10% auto;
+  margin-top: 35px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #064663;
+
+  border-top: solid #04293a;
+  border-bottom: solid #04293a;
+}
+
+.cart-form h5, label{
+  color: white;
+  font-weight: bolder;
+}
