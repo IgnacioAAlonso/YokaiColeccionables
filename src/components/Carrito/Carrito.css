@@ -98,11 +98,12 @@ h4 {
   background-color: #04293a;
 }
 
-.cart-form{
+.cart-form {
   width: 80%;
   max-width: 800px;
   margin: 10% auto;
   margin-top: 35px;
+  margin-bottom: 25px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -113,7 +114,20 @@ h4 {
   border-bottom: solid #04293a;
 }
 
-.cart-form h5, label{
+.cart-form h5,
+label {
   color: white;
   font-weight: bolder;
+}
+
+.showClass {
+  display: block;
+}
+
+.hidenClass {
+  display: none;
+}
+
+.cart-display {
+  display: none;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink as Link, withRouter } from 'react-router-dom';
 import ItemDetail from "../Item/ItemDetail/ItemDetail";
 import CartContext from "./context/CartContext";
 import { deleteDoc, writeBatch, updateDoc, addDoc, collection, getDocs, doc, getFirestore, getDoc, where, query } from 'firebase/firestore';
@@ -21,6 +21,8 @@ const Cart = () => {
     const productos = useContext(CartContext).carrito;
     const clear = useContext(CartContext).clear;
     const getPrecio = useContext(CartContext).getPrecioTotal;
+    const setOrder = useContext(CartContext).addOrder;
+    const orderId = useContext(CartContext).orderId;
     let [state, setState] = useState(getPrecio());
     let [comprador, setComprador] = useState();
 
@@ -35,24 +37,13 @@ const Cart = () => {
         setState(getPrecio())
     }))
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        const newItem = {nombre:e.target[0].value, apellido:e.target[1].value, telefono:e.target[2].value, mail:e.target[3].value}
+        const newItem = { nombre: e.target[0].value, apellido: e.target[1].value, telefono: e.target[2].value, mail: e.target[3].value }
         setComprador(newItem)
         document.getElementById("miForm").reset();
-    }
-
-    const handleClick = (e)=>{
-        e.preventDefault()
-        let order = {
-            buyer: comprador,
-            items: productos,
-            total: state
-        }
-        const data = collection(db, "orders")
-        addDoc(data,order).then((res)=>{
-            console.log(res.id)
-        })
+        document.getElementById("miFormAlert").classList.remove('hidenClass');
+        document.getElementById("miFormAlert").classList.add('showClass');
     }
 
     return (
@@ -65,39 +56,64 @@ const Cart = () => {
                     <ItemDetail item={producto} type="cart" />
                 )))
             }
-            
-            <div class="cart-form">
-                <h5>Datos del comprador:</h5>
-                <form id="miForm" onSubmit={handleSubmit}>
-                <div class="row g-3 align-items-center">
-                    <div class="col-6"> 
-                        <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                        <input type="text" class="form-control"></input>
-                    </div>
 
-                    <div class="col-6">
-                        <label for="exampleInputPassword1" class="form-label">Apellido</label>
-                        <input type="text" class="form-control"></input>
-                    </div>
+            {
+                (productos.length > 0) ?
+                    (
+                        <div class="cart-form">
+                            <h5>Datos del comprador:</h5>
+                            <form id="miForm" onSubmit={handleSubmit}>
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-6">
+                                        <label for="exampleInputPassword1" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control"></input>
+                                    </div>
 
-                    <div class="col-6">
-                        <label for="exampleInputPassword1" class="form-label">Teléfono</label>
-                        <input type="number" class="form-control"></input>
-                    </div>
+                                    <div class="col-6">
+                                        <label for="exampleInputPassword1" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control"></input>
+                                    </div>
 
-                    <div class="col-6">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp"></input>
-                    </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
-                </form>
-            </div>
+                                    <div class="col-6">
+                                        <label for="exampleInputPassword1" class="form-label">Teléfono</label>
+                                        <input type="number" class="form-control"></input>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <input type="email" class="form-control" aria-describedby="emailHelp"></input>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                                <div id="miFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
+                                    ¡Usuario cargado con éxito!
+                                </div>
+                            </form>
+                        </div>
+                    )
+                    :
+                    (<></>)
+            }
 
             <div class="cart-checkOut">
                 <div class="cart-checkOutTotal"> Total: ${state} </div>
-                <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas" onClick={handleClick}> Finalizar Compra </button>
-                {/* <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas" onClick={() => { clearAll(); }}> Borrar todo </button> */}
+                <Link to={{
+                    pathname: `/orders`
+                }} onClick={() => {
+                    let order = {
+                        buyer: comprador,
+                        items: productos,
+                        total: state
+                    }
+                    const data = collection(db, "orders")
+                    addDoc(data, order).then((res) => {
+                        console.log("Estoy haciendo esto")
+                        setOrder(res.id);
+                    })
+                }}>
+                    <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas"> Finalizar Compra </button>
+                </Link>
+
                 {(productos.length == 0) ?
                     (<Link to={{ pathname: `/colecciones` }}>
                         <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas" > Seguir Comprando </button>

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 function CustomCarrito({ children }) {
     const [carrito, setCarrito] = useState([]);
+    const [orderId, setOrderId] = useState();
     let nuevoItem = true;
 
     function addItem(item, quantity) {
@@ -20,6 +21,11 @@ function CustomCarrito({ children }) {
                 setCarrito([...carrito, item]);
             }
         }
+    }
+
+    function addOrder(id) {
+        console.log("Cargo id: " + id);
+        setOrderId(id);
     }
 
     function removeItem(id) {
@@ -54,7 +60,7 @@ function CustomCarrito({ children }) {
     }
 
     return (
-        <CartContext.Provider value={{ carrito, setCarrito, addItem, setQuantity, removeItem, clear, getPrecioTotal, getCantidadTotal }}>
+        <CartContext.Provider value={{ carrito, orderId, setCarrito, addItem, setQuantity, removeItem, clear, getPrecioTotal, getCantidadTotal, addOrder }}>
             {children}
         </CartContext.Provider>
     )
