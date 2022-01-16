@@ -25,7 +25,6 @@ const Cart = () => {
     const orderId = useContext(CartContext).orderId;
     let [state, setState] = useState(getPrecio());
     let [comprador, setComprador] = useState();
-
     const db = getFirestore();
 
     const clearAll = () => {
@@ -40,10 +39,23 @@ const Cart = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const newItem = { nombre: e.target[0].value, apellido: e.target[1].value, telefono: e.target[2].value, mail: e.target[3].value }
-        setComprador(newItem)
-        document.getElementById("miForm").reset();
-        document.getElementById("miFormAlert").classList.remove('hidenClass');
-        document.getElementById("miFormAlert").classList.add('showClass');
+        if (e.target[0].value.length > 0
+            && e.target[1].value.length > 0
+            && e.target[2].value.length > 0
+            && e.target[3].value.length > 0) {
+            setComprador(newItem)
+            document.getElementById("miForm").reset();
+            document.getElementById("miFormAlert").classList.remove('hidenClass');
+            document.getElementById("miFormAlert").classList.add('showClass');
+            document.getElementById("miNotFormAlert").classList.remove('showClass');
+            document.getElementById("miNotFormAlert").classList.add('hidenClass');
+        }
+        else {
+            document.getElementById("miNotFormAlert").classList.remove('hidenClass');
+            document.getElementById("miNotFormAlert").classList.add('showClass');
+            document.getElementById("miFormAlert").classList.remove('showClass');
+            document.getElementById("miFormAlert").classList.add('hidenClass');
+        }
     }
 
     return (
@@ -86,7 +98,10 @@ const Cart = () => {
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-3">Enviar</button>
                                 <div id="miFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                                    ¡Usuario cargado con éxito!
+                                    Usuario cargado con éxito
+                                </div>
+                                <div id="miNotFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
+                                    Faltan datos por Cargar
                                 </div>
                             </form>
                         </div>
