@@ -5,6 +5,7 @@ import './Orders.css';
 
 const Orders = () => {
     const orderId = useContext(CartContext).orderId;
+    const clear = useContext(CartContext).clear;
     const [buyer, setBuyer] = useState();
     const [items, setItems] = useState([]);
     const [total, setTotal] = useState();
@@ -19,11 +20,24 @@ const Orders = () => {
                 setTotal(snapshot.data().total)
             })
         }
+        clear();
+
     }, [orderId])
+
+    useEffect(() => {
+        
+        if (orderId != undefined) {
+            for (let i = 0; i < items.length; i++) { 
+                const dataI = doc(db, "items", items[i].id);
+                let stk = (items[i].stock - items[i].cantidad);
+                updateDoc(dataI, {stock: stk});
+            }
+        }
+    }, [items])
 
     return (
         (items.length == 0) ?
-            <div>vacio</div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh', color: '#fff', gap: '10px', fontSize: '28px'}}> <i class="fas fa-spinner"></i> Cargando...</div>
             :
             (<div class="orderContainer">
                 <div class="orderContainer__id">

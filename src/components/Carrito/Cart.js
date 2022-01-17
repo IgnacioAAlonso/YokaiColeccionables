@@ -25,6 +25,7 @@ const Cart = () => {
     const orderId = useContext(CartContext).orderId;
     let [state, setState] = useState(getPrecio());
     let [comprador, setComprador] = useState();
+    let [usuario, setUsuario] = useState(false);
     const db = getFirestore();
 
     const clearAll = () => {
@@ -44,6 +45,7 @@ const Cart = () => {
             && e.target[2].value.length > 0
             && e.target[3].value.length > 0) {
             setComprador(newItem)
+            setUsuario(true);
             document.getElementById("miForm").reset();
             document.getElementById("miFormAlert").classList.remove('hidenClass');
             document.getElementById("miFormAlert").classList.add('showClass');
@@ -51,6 +53,7 @@ const Cart = () => {
             document.getElementById("miNotFormAlert").classList.add('hidenClass');
         }
         else {
+            setUsuario(false);
             document.getElementById("miNotFormAlert").classList.remove('hidenClass');
             document.getElementById("miNotFormAlert").classList.add('showClass');
             document.getElementById("miFormAlert").classList.remove('showClass');
@@ -101,7 +104,7 @@ const Cart = () => {
                                     Usuario cargado con éxito
                                 </div>
                                 <div id="miNotFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                                    Faltan datos por Cargar
+                                    Faltan datos por cargar
                                 </div>
                             </form>
                         </div>
@@ -112,22 +115,26 @@ const Cart = () => {
 
             <div class="cart-checkOut">
                 <div class="cart-checkOutTotal"> Total: ${state} </div>
-                <Link to={{
-                    pathname: `/orders`
-                }} onClick={() => {
-                    let order = {
-                        buyer: comprador,
-                        items: productos,
-                        total: state
-                    }
-                    const data = collection(db, "orders")
-                    addDoc(data, order).then((res) => {
-                        console.log("Estoy haciendo esto")
-                        setOrder(res.id);
-                    })
-                }}>
-                    <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas"> Finalizar Compra </button>
-                </Link>
+                {(usuario) ?
+                    (<Link to={{
+                        pathname: `/orders`
+                    }} onClick={() => {
+                        let order = {
+                            buyer: comprador,
+                            items: productos,
+                            total: state
+                        }
+                        const data = collection(db, "orders")
+                        addDoc(data, order).then((res) => {
+                            console.log("Estoy haciendo esto")
+                            setOrder(res.id);
+                        })
+                    }}>
+                        <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas"> Finalizar Compra </button>
+                    </Link>)
+                    :
+                    (<button class="cart-checkOutTotalButton inhabilitado" data-bs-dismiss="offcanvas"> Finalizar Compra </button>)
+                }
 
                 {(productos.length == 0) ?
                     (<Link to={{ pathname: `/colecciones` }}>

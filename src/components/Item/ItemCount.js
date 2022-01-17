@@ -8,6 +8,7 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
     const setQuantity = useContext(CartContext).setQuantity;
     const removeItem = useContext(CartContext).removeItem;
     const getCantidad = useContext(CartContext).getPrecioTotal;
+    let [stk, setStock] = useState(stock);
 
     const sumaCarrito = () => {
         if (stock > state) {
@@ -40,9 +41,15 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
                     <p class="cantidad__item">{state}</p>
                     <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
                 </div>
-                <button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight"
+                
+                    {(stk > 0) ?
+                    (<button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight"
                     onClick={() => { setCarrito(producto, state); }}>
-                    Agregar al carrito</button>
+                    Agregar al carrito</button>)
+                    :
+                    (<button class="agregar__item" data-bs-toggle="offcanvas">
+                    Sin Stock</button>)
+                }
                 <p class="stock__item">Stock Actual: {stock}</p>
             </>
         )

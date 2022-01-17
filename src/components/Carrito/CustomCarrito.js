@@ -60,7 +60,7 @@ function CustomCarrito({ children }) {
     }
 
     return (
-        <CartContext.Provider value={{ carrito, orderId, setCarrito, addItem, setQuantity, removeItem, clear, getPrecioTotal, getCantidadTotal, addOrder }}>
+        <CartContext.Provider value={{ carrito, orderId, setCarrito, addItem, setQuantity, removeItem, clear, getPrecioTotal, getCantidadTotal, addOrder}}>
             {children}
         </CartContext.Provider>
     )

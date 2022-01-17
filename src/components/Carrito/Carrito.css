@@ -98,6 +98,16 @@ h4 {
   background-color: #04293a;
 }
 
+.inhabilitado{
+  color: #b8b8b8;
+  border: groove #b8b8b8;
+}
+
+.inhabilitado:hover{
+  background-color: transparent;
+  cursor: initial;
+}
+
 .cart-form {
   width: 80%;
   max-width: 800px;

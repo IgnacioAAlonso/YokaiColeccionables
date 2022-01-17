@@ -50,6 +50,12 @@
   */
 }
 
+.card_item--inhabilitado{
+  margin: 6px;
+  background-color: #041c32;
+  filter: grayscale(100%);
+}
+
 .card__bodyItem {
   color: white;
 }
