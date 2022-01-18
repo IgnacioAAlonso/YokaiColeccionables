@@ -21,7 +21,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes  >
-          <Route path='/' element={<Home />} />
+          <Route path='/YokaiColeccionables/' element={<Home />} />
           <Route path='/colecciones' element={<Colecciones />} />
           <Route path='/category/:id' element={<Colecciones />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
