@@ -15,7 +15,7 @@ const Navbar = () => {
             <Nav>
                 <Bars></Bars>
                 <NavMenu>
-                    <NavLink to="/" activeStyle>
+                    <NavLink to="/YokaiColeccionables/" activeStyle>
                         Inicio
                     </NavLink>
                     <NavLink to="/colecciones" activeStyle>
@@ -29,7 +29,7 @@ const Navbar = () => {
                     </NavLink>
                 </NavMenu>
 
-                <NavLink to="/">
+                <NavLink to="/YokaiColeccionables/">
                     <img class="imagen_logo" src={Logo} alt="Logo" />
                 </NavLink>
 
