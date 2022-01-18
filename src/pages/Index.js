@@ -23,7 +23,7 @@ const Home = () => {
                         <img src="https://www.cuevadelobo.com/wp-content/uploads/2014/08/Batman-4.jpg" class="d-block w-100" alt="Banner Batman" />
                         <Link to="/colecciones">
                             <button class="carousel-itemButton">
-                                Colecc
+                                Colecciones
                             </button>
                         </Link>
                     </div>
