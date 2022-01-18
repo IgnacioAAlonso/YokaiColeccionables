@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/YokaiColeccionables/static/css/main.9008825b.chunk.css",
-    "main.js": "/YokaiColeccionables/static/js/main.d0a43fc5.chunk.js",
-    "main.js.map": "/YokaiColeccionables/static/js/main.d0a43fc5.chunk.js.map",
+    "main.js": "/YokaiColeccionables/static/js/main.f0d4e8f6.chunk.js",
+    "main.js.map": "/YokaiColeccionables/static/js/main.f0d4e8f6.chunk.js.map",
     "runtime-main.js": "/YokaiColeccionables/static/js/runtime-main.ff5384ef.js",
     "runtime-main.js.map": "/YokaiColeccionables/static/js/runtime-main.ff5384ef.js.map",
     "static/js/2.ca3f7a1c.chunk.js": "/YokaiColeccionables/static/js/2.ca3f7a1c.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ff5384ef.js",
     "static/js/2.ca3f7a1c.chunk.js",
     "static/css/main.9008825b.chunk.css",
-    "static/js/main.d0a43fc5.chunk.js"
+    "static/js/main.f0d4e8f6.chunk.js"
   ]
 }
