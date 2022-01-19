@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Index'
@@ -9,9 +9,7 @@ import Nosotros from './pages/Nosotros';
 import Cart from './components/Carrito/Cart';
 import Orders from './components/Orders/Orders';
 import Contacto from './pages/Contacto';
-import Carrito from './components/Carrito/Carrito';
 import CustomCarrito from './components/Carrito/CustomCarrito';
-import ItemListContainer from './components/Item/ItemList/ItemListContainer';
 
 function App() {
 

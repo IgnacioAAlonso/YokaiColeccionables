@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import "./Item.css"
 import CartContext from '../Carrito/context/CartContext'
 
@@ -7,7 +7,6 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
     const setCarrito = useContext(CartContext).addItem;
     const setQuantity = useContext(CartContext).setQuantity;
     const removeItem = useContext(CartContext).removeItem;
-    const getCantidad = useContext(CartContext).getPrecioTotal;
     let [stk, setStock] = useState(stock);
 
     var evtCant = new CustomEvent("MyEventCant");

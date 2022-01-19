@@ -15,7 +15,6 @@ function useAddCarrito(eventType, handler) {
 }
 
 const Carrito = () => {
-    const value = useContext(CartContext);
     const productos = useContext(CartContext).carrito;
     const clear = useContext(CartContext).clear;
     const getCantidad = useContext(CartContext).getCantidadTotal;
@@ -56,7 +55,7 @@ const Carrito = () => {
                 </div>
                 <div class="offcanvas-body">
 
-                    {(productos.length == 0) ?
+                    {(productos.length === 0) ?
                         (<p> El carrito está vacio </p>) :
                         (productos.map((producto) => (
                             <ItemDetail item={producto} type="carrito" />

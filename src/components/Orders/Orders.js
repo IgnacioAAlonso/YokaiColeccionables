@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import CartContext from "../Carrito/context/CartContext";
-import { deleteDoc, writeBatch, updateDoc, addDoc, collection, getDocs, doc, getFirestore, getDoc, where, query } from 'firebase/firestore';
+import { updateDoc, doc, getFirestore, getDoc } from 'firebase/firestore';
 import './Orders.css';
 
 const Orders = () => {
@@ -12,7 +12,7 @@ const Orders = () => {
     const db = getFirestore();
 
     useEffect(() => {
-        if (orderId != undefined) {
+        if (orderId !== undefined) {
             const data = doc(db, "orders", orderId)
             getDoc(data).then((snapshot) => {
                 setBuyer(snapshot.data().buyer)
@@ -25,19 +25,19 @@ const Orders = () => {
     }, [orderId])
 
     useEffect(() => {
-        
-        if (orderId != undefined) {
-            for (let i = 0; i < items.length; i++) { 
+
+        if (orderId !== undefined) {
+            for (let i = 0; i < items.length; i++) {
                 const dataI = doc(db, "items", items[i].id);
                 let stk = (items[i].stock - items[i].cantidad);
-                updateDoc(dataI, {stock: stk});
+                updateDoc(dataI, { stock: stk });
             }
         }
     }, [items])
 
     return (
-        (items.length == 0) ?
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh', color: '#fff', gap: '10px', fontSize: '28px'}}> <i class="fas fa-spinner"></i> Cargando...</div>
+        (items.length === 0) ?
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh', color: '#fff', gap: '10px', fontSize: '28px' }}> <i class="fas fa-spinner"></i> Cargando...</div>
             :
             (<div class="orderContainer">
                 <div class="orderContainer__id">

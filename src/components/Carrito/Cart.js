@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { NavLink as Link, withRouter } from 'react-router-dom';
 import ItemDetail from "../Item/ItemDetail/ItemDetail";
 import CartContext from "./context/CartContext";
-import { deleteDoc, writeBatch, updateDoc, addDoc, collection, getDocs, doc, getFirestore, getDoc, where, query } from 'firebase/firestore';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 
 function useAddCarrito(eventType, handler) {
@@ -22,7 +22,6 @@ const Cart = () => {
     const clear = useContext(CartContext).clear;
     const getPrecio = useContext(CartContext).getPrecioTotal;
     const setOrder = useContext(CartContext).addOrder;
-    const orderId = useContext(CartContext).orderId;
     let [state, setState] = useState(getPrecio());
     let [comprador, setComprador] = useState();
     let [usuario, setUsuario] = useState(false);
@@ -64,7 +63,7 @@ const Cart = () => {
     return (
         <div>
             <div> <h3 class="cart-title">Carrito de Compras</h3></div>
-            {(productos.length == 0) ?
+            {(productos.length === 0) ?
                 (<h4> El carrito está vacio </h4>)
                 :
                 (productos.map((producto) => (
@@ -136,7 +135,7 @@ const Cart = () => {
                     (<button class="cart-checkOutTotalButton inhabilitado" data-bs-dismiss="offcanvas"> Finalizar Compra </button>)
                 }
 
-                {(productos.length == 0) ?
+                {(productos.length === 0) ?
                     (<Link to={{ pathname: `/colecciones` }}>
                         <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas" > Seguir Comprando </button>
                     </Link>)

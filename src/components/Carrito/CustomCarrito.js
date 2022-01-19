@@ -8,16 +8,16 @@ function CustomCarrito({ children }) {
 
     function addItem(item, quantity) {
         nuevoItem = true;
-        if (item.title != undefined & carrito != undefined) {
+        if (item.title !== undefined & carrito !== undefined) {
             item.cantidad = quantity;
 
             for (let i = 0; i < carrito.length; i++) {
-                if (carrito[i].id == item.id) {
+                if (carrito[i].id === item.id) {
                     nuevoItem = false;
                 }
             }
 
-            if (nuevoItem == true) {
+            if (nuevoItem === true) {
                 setCarrito([...carrito, item]);
             }
         }

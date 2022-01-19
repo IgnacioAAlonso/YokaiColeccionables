@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { NavLink as Link } from 'react-router-dom';
-import ItemList from './ItemList'
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import ItemList from './ItemList';
 
 const ItemListContainer = () => {
 

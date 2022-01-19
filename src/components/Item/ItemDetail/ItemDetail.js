@@ -1,17 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import "../Item.css"
 import ItemCount from '../ItemCount'
 import CartContext from '../../Carrito/context/CartContext';
-
-/* function useAddCarrito(eventType, handler) {  
-    useEffect(() => {
-    
-        window.addEventListener(eventType, handler);
-        return () => {
-            window.removeEventListener(eventType, handler);
-        }
-}, [handler])
-} */
 
 const ItemDetail = ({ item, type }) => {
 
