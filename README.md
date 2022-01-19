@@ -1,3 +1,22 @@
+## GIF de la compra
+
+![Alt Text](https://media.giphy.com/media/ScTgfSaCWDaqMIfnKX/giphy.gif)
+
+# YOKAI
+
+## Descripción
+
+Proyecto Final para el curso de ReactJS de la academia Coder House (2020). La aplicación permite conectarse con un backend realizdo con Firebase. Permite seleccionar los productos que tengan stock, navegar a sus detalles, agregarlos al carrito, poder acceder a él y simular la compra. Al clickear sobre el botón "Iniciar Compra" lo llevará a la descripcion del Carrito donde podrá ver los productos seleccionado y finalizar la compra. Pide llenar un formulario con datos básicos y luego de "Finalizar Compra" (solo se activa al llenar el formulario) se genera un id de orden para el usuario y en firebase se guarda la orden con los productos que compró y los datos del formulario.
+
+## Tecnologías y librerías:
+
+Interfaz realizada con ReactJS - Create React App.
+Estilos con Bootstrap, Css.
+Ruteo con React Router Dom.
+Backend con Firebase.
+
+<img src="https://user-images.githubusercontent.com/44064190/95280201-d4657680-082a-11eb-90e4-70e061f2b7ec.png" alt="estructura" style="max-width: 100%;">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
