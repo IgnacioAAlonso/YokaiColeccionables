@@ -10,10 +10,12 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
     const getCantidad = useContext(CartContext).getPrecioTotal;
     let [stk, setStock] = useState(stock);
 
+    var evtCant = new CustomEvent("MyEventCant");
     const sumaCarrito = () => {
         if (stock > state) {
             setState(++state);
             setQuantity(producto, state);
+            window.dispatchEvent(evtCant);
         }
     }
 
@@ -21,6 +23,7 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
         if (state > 1) {
             setState(--state);
             setQuantity(producto, state);
+            window.dispatchEvent(evtCant);
         }
     }
 
@@ -41,14 +44,14 @@ const ItemCount = ({ stock, type, producto, state, setState }) => {
                     <p class="cantidad__item">{state}</p>
                     <button class="btn btn-primary botones__item" onClick={sumaCarrito}>+</button>
                 </div>
-                
-                    {(stk > 0) ?
+
+                {(stk > 0) ?
                     (<button class="agregar__item" data-bs-toggle="offcanvas" href="#offcanvasRight"
-                    onClick={() => { setCarrito(producto, state); }}>
-                    Agregar al carrito</button>)
+                        onClick={() => { setCarrito(producto, state); }}>
+                        Agregar al carrito</button>)
                     :
                     (<button class="agregar__item" data-bs-toggle="offcanvas">
-                    Sin Stock</button>)
+                        Sin Stock</button>)
                 }
                 <p class="stock__item">Stock Actual: {stock}</p>
             </>

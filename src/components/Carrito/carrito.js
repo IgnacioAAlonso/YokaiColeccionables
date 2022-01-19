@@ -4,15 +4,31 @@ import ItemDetail from "../Item/ItemDetail/ItemDetail";
 import CartContext from "./context/CartContext";
 import "./Carrito.css"
 
+function useAddCarrito(eventType, handler) {
+    useEffect(() => {
+
+        window.addEventListener(eventType, handler);
+        return () => {
+            window.removeEventListener(eventType, handler);
+        }
+    }, [handler])
+}
+
 const Carrito = () => {
     const value = useContext(CartContext);
     const productos = useContext(CartContext).carrito;
     const clear = useContext(CartContext).clear;
     const getCantidad = useContext(CartContext).getCantidadTotal;
+    let [state, setState] = useState(getCantidad());
 
     const clearAll = () => {
         clear();
+        setState(0);
     }
+
+    useAddCarrito(window.addEventListener("MyEventCant", () => {
+        setState(getCantidad())
+    }))
 
     return (
         <div>
