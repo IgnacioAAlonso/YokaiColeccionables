@@ -14,9 +14,6 @@ Interfaz realizada con ReactJS - Create React App.
 Estilos con Bootstrap, Css.
 Ruteo con React Router Dom.
 Backend con Firebase.
-
-<img src="https://user-images.githubusercontent.com/44064190/95280201-d4657680-082a-11eb-90e4-70e061f2b7ec.png" alt="estructura" style="max-width: 100%;">
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
